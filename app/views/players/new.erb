@@ -1,0 +1,13 @@
+<form method="POST" action="/players/new">
+  <input type="hidden" name="points" value="<%= @player.points %>"/>
+  <div>
+    <input type ="text" name="name" placeholder="enter name">
+  </div>
+  <label>Add Question:</label>
+  <div>
+    <textarea name="question"></textarea>
+  </div>
+  <div>
+    <input type="submit" />
+  </div>
+</form>

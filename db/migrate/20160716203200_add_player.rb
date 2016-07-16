@@ -4,6 +4,6 @@ class AddPlayer < ActiveRecord::Migration
       t.string :name
       t.integer :points
       t.timestamps null: false
-  end
+    end
   end
 end

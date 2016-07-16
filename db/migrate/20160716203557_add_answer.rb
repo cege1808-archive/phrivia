@@ -5,5 +5,6 @@ class AddAnswer < ActiveRecord::Migration
       t.references :player
       t.references :question
       t.timestamps null: false
+    end
   end
 end
