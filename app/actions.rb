@@ -1,5 +1,6 @@
 # Homepage (Root path)
 get '/' do
+  @all_players = Player.all
   erb :index
 end
 
@@ -16,11 +17,10 @@ post '/players/new' do
   redirect '/'
 end
 
-get '/question' do
-  @question = Question.find_by(player_id: Player.last.id).question
+get '/question/one' do
+  @player = Player.order(:id)[0]
+  @question = Question.find_by(player_id: @player.id).question
   erb :question
 end
-
-
 
 

@@ -1,9 +1,15 @@
 <h1>Home Page</h1>
 
+<% @all_players.each do |player| %>
+  <div>
+  <%= player.name %>
+  </div>
+<% end %>
+
 <button>
   <a href="/players/new">Add Player</a>
 </button>
 
 <button>
-  <a href="/question">Start</a>
+  <a href="/question/one">Start</a>
 </button>
