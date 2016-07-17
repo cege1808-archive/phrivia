@@ -26,6 +26,10 @@
         </div>
 
         <div class="col-md-1 right leaderboard-labels edge">
+          <small>Answer</small>
+        </div>
+
+        <div class="col-md-1 right leaderboard-labels edge">
           <small>Rounds Pts</small>
         </div>
 
@@ -45,14 +49,24 @@
           <li></li>
         </div>
 
+
+
         <div class="col-md-1 score-hr">
           <%= player.name %>   
         </div>
 
         <div class="col-md-1 right score-hr">
-          <%= player.points %>
+          <% answer = @all_answers.find_by(question_id: @question.id, player_id: player.id) %>
+          <% if answer == nil %>
+            <h1></h1>
+          <% else %>
+            <%= answer.answer %>
+          <% end %>
         </div>
 
+        <div class="col-md-1 right score-hr">
+          <%= player.points %>
+        </div>
         <div class="col-md-1 right score-hr">
           <%= player.points %>
         </div>

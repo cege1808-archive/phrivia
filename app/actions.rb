@@ -75,8 +75,11 @@ end
 
 get '/question/:question_order/result' do 
   @question_order = params[:question_order].to_i - 1
+  @question = Question.order(:id)[@question_order]
   @all_players = Player.all.order(points: :desc)
+  @all_answers = Answer.all
   @next_question = params[:question_order].to_i + 1
+
 
   if params[:question_order].to_i < @all_players.count
     erb :'/players/result'
