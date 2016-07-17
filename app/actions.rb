@@ -54,3 +54,26 @@ get '/question/:question_id/rank' do
   @answers = Answer.where(question_id: @question.id)
   erb :'/players/rank'
 end
+
+post '/question/:question_id/ranked' do 
+  # params[:12] = 500
+  # binding.pry
+  @question = Question.find(params[:question_id])
+  @player = Player.find(@question.player_id)
+  @other_players = Player.where.not(id: @player.id)
+
+  @other_players.each do |player|
+    the_id = player.id
+    player.points += params[(the_id.to_s)].to_i
+    player.save
+  end
+
+  redirect "/question/#{:question_id}/result"
+end
+
+get '/question/:question_id/result' do 
+  @all_players = Player.all
+  erb :'/players/result'
+
+end
+

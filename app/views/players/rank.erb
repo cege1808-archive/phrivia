@@ -1,9 +1,19 @@
 <p> this page works </p>
 <%= @question.question %>
+
+
+<form method='POST' action='/question/<%= @question.id %>/ranked'>
 <% @answers.each do |answer| %>
   <div>
     <%= answer.answer %>
   </div>
-  <input type="text" name="rank"/>
+  <div>
+    <%= Player.find(answer.player_id).name %>
+    <input type="text" name="<%= answer.player_id %>" />
+
+  </div>
+  </br>
 <% end %>
 
+  <input type="submit" />
+</form>
