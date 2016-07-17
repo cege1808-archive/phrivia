@@ -34,7 +34,7 @@ post '/question/:question_id/answers' do
     player_id: params[:other_player_id]
     )
   
-  if Answer.all.count < (Player.all.count - 1)
+  if Answer.where(question_id: params[:question_id]).count < (Player.all.count - 1)
     redirect '/question/one'
   else
     redirect "/question/#{params[:question_id]}/pass"
