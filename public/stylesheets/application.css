@@ -5,11 +5,7 @@ h1, h4 {
   font-weight: 600;
 }
 
-.test {
-  background-color: yellow;
-}
-
-p, select, label {
+p, select, label, .board {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1.25em;
@@ -32,6 +28,11 @@ small {
 
 .right-side {
   background-color: orange;
+}
+
+.answer-contrast {
+  background-color: #e6e6e6;
+  margin-bottom: 2em;
 }
 
 
@@ -65,6 +66,10 @@ button {
 
 .button-submit {
   margin-top: 0.75em;
+  margin-bottom: 5em;
+}
+
+.bottom {
   margin-bottom: 5em;
 }
 
@@ -111,6 +116,10 @@ label {
 
 ol {
   padding-left: 0;
+}
+
+.overflow {
+  text-align: right;
 }
 
 .right {

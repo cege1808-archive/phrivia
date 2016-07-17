@@ -77,7 +77,7 @@ get '/question/:question_order/result' do
   @question_order = params[:question_order].to_i - 1
   @question = Question.order(:id)[@question_order]
   @all_players = Player.all.order(points: :desc)
-  @all_answers = Answer.all
+  @answers_all = Answer.where(question_id: @question.id)
   @next_question = params[:question_order].to_i + 1
 
 
@@ -91,6 +91,8 @@ end
 
 get '/final_result' do 
   @all_players = Player.all
+  @all_questions = Question.all
+  @all_answers = Answer.all
 
   highest_score = @all_players.maximum("points")
   lowest_score = @all_players.minimum("points")
