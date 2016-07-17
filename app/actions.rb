@@ -77,3 +77,13 @@ get '/question/:question_id/result' do
 
 end
 
+get '/final_result' do 
+  @all_players = Player.all
+  # binding.pry
+  highest_score = @all_players.maximum("points")
+  lowest_score = @all_players.minimum("points")
+  @highest_scorer = @all_players.find_by(points: highest_score)
+  @lowest_scorer = @all_players.find_by(points: lowest_score)
+  erb :'final'
+
+end

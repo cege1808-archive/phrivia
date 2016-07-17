@@ -1,0 +1,9 @@
+<h1> final result </h1>
+<% @all_players.each do |player| %>
+  <%= player.name %>
+  <%= player.points %>
+
+<% end %>
+
+<h1> the winner is <%= @highest_scorer.name %> </h1>
+<h1> <%= @lowest_scorer.name %> must buy beer </h1>
