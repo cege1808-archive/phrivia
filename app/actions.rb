@@ -83,7 +83,12 @@ get '/question/:question_order/result' do
   @question_order = params[:question_order].to_i - 1
   @all_players = Player.all.order(points: :desc)
   @next_question = params[:question_order].to_i + 1
-  erb :'/players/result'
+  
+  if params[:question_order].to_i < @all_players.count
+    erb :'/players/result'
+  else
+    redirect '/final_result'
+  end
 
 end
 
