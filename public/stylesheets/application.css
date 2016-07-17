@@ -122,3 +122,81 @@ textarea {
   margin-top: 1em;
   border: 2px solid #333;
 }
+
+/*Button layout*/
+a{
+  text-decoration: none !important;
+}
+.button{
+  background: #ff6161;
+  margin: 10px auto;
+  width: 200px;
+  height: 50px;
+  padding-top: 5%;
+  overflow: hidden;
+  text-align: center;
+  transition: .2s;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+.btnTwo{
+  position: relative;
+  width: 200px;
+  height: 100px;
+  margin-top: -100px;
+  padding-top: 0px;
+  background: #57a346;
+  left: -250px;
+  transition: .3s;
+}
+.btnText {
+  color : white;
+  transition : .3s;
+}
+.btnText_1 {
+  color : white;
+  transition : .3s;
+  text-decoration: none;
+}
+.btnText2 {
+  margin-top : 63px;
+  margin-right : -130px;
+  color : white;
+  padding-top: 20px;
+
+}
+.button:hover .btnTwo{ /*When hovering over .button change .btnTwo*/
+  left: -110px;
+  text-decoration: none;
+}
+.button:hover .btnText{ /*When hovering over .button change .btnText*/
+  margin-left : 65px;
+}
+.button:hover .btnText_1{ /*When hovering over .button change .btnText*/
+  margin-left : 1px;
+
+}
+.button:active { /*Clicked and held*/
+  box-shadow: 0px 5px 6px rgba(0,0,0,0.3);
+}
+#holder{
+-moz-user-select: -moz-none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+background: #e69eed;
+padding: 10px;
+width:250px;
+margin: 0 auto;
+position: relative;
+top: 60%;
+transform: translateY(-5%);
+box-shadow: 0px 3px 8px rgba(0,0,0,0.25);
+border-radius: 2px;
+}
+.player_names{
+  text-align: center;
+}
+.title {
+  text-align: center;
+}
