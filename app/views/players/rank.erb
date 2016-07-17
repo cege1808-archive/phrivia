@@ -2,8 +2,8 @@
 <%= @question.question %>
 
 
-<form method='POST' action='/question/<%= @question.id %>/ranked'>
-<% @answers.each do |answer| %>
+<form method='POST' action='/question/<%= @question_order + 1 %>/ranked'>
+<% @answers_all.each do |answer| %>
   <div>
     <%= answer.answer %>
   </div>

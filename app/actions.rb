@@ -17,9 +17,10 @@ post '/players/new' do
   redirect '/'
 end
 
-get '/question/one' do
-  @player = Player.order(:id)[0]
-  @question = Question.find_by(player_id: @player.id)
+get '/question/:question_order' do
+  @question_order = params[:question_order].to_i - 1
+  @question = Question.order(:id)[@question_order]
+  @player = Player.find(@question.player_id)
   @other_players = Player.where.not(id: @player.id)
   @answer = Answer.new
   @all_answer = Answer.where(question_id:@question.id)
@@ -27,7 +28,8 @@ get '/question/one' do
   
 end
 
-post '/question/:question_id/answers' do 
+post '/question/:question_order/answers' do 
+
   @answer = Answer.create(
     question_id: params[:question_id],
     answer: params[:answer],
@@ -35,30 +37,36 @@ post '/question/:question_id/answers' do
     )
   
   if Answer.where(question_id: params[:question_id]).count < (Player.all.count - 1)
-    redirect '/question/one'
+    redirect "/question/#{params[:question_order]}"
   else
-    redirect "/question/#{params[:question_id]}/pass"
+    redirect "/question/#{params[:question_order]}/pass"
   end
 
 end
 
-get '/question/:question_id/pass'do 
-  @question = Question.find(params[:question_id])
+get '/question/:question_order/pass'do 
+  @question_order = params[:question_order].to_i - 1
+  @question = Question.order(:id)[@question_order]
+  # @question = Question.find(params[:question_id])
   # binding.pry
   @player = Player.find(@question.player_id)
   erb :'/players/pass'
 end
 
-get '/question/:question_id/rank' do 
-  @question = Question.find(params[:question_id])
-  @answers = Answer.where(question_id: @question.id)
+get '/question/:question_order/rank' do 
+  @question_order = params[:question_order].to_i - 1
+  @question = Question.order(:id)[@question_order]
+  # @question = Question.find(params[:question_id])
+  @answers_all = Answer.where(question_id: @question.id)
   erb :'/players/rank'
 end
 
-post '/question/:question_id/ranked' do 
+post '/question/:question_order/ranked' do 
   # params[:12] = 500
   # binding.pry
-  @question = Question.find(params[:question_id])
+  @question_order = params[:question_order].to_i - 1
+  @question = Question.order(:id)[@question_order]
+  # @question = Question.find(params[:question_id])
   @player = Player.find(@question.player_id)
   @other_players = Player.where.not(id: @player.id)
 
@@ -68,11 +76,13 @@ post '/question/:question_id/ranked' do
     player.save
   end
 
-  redirect "/question/#{:question_id}/result"
+  redirect "/question/#{@question_order + 1}/result"
 end
 
-get '/question/:question_id/result' do 
+get '/question/:question_order/result' do 
+  @question_order = params[:question_order].to_i - 1
   @all_players = Player.all.order(points: :desc)
+  @next_question = params[:question_order].to_i + 1
   erb :'/players/result'
 
 end

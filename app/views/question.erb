@@ -8,7 +8,9 @@
 <% end %>
 </ul>
 
-<form method="POST" action="/question/<%= @question.id %>/answers">
+<form method="POST" action="/question/<%= (@question_order + 1) %>/answers">
+  <input type="hidden" name="question_id" value="<%= @question.id %>"/>
+
 
   <select name="other_player_id">
   <% @other_players.each do | other_player| %>
