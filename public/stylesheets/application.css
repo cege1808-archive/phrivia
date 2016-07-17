@@ -5,6 +5,10 @@ h1, h4 {
   font-weight: 600;
 }
 
+.test {
+  background-color: yellow;
+}
+
 p, select, label {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
@@ -30,7 +34,12 @@ body {
 }
 
 .brand {
-  margin-top: 1.5em;
+  margin-top: 1em;
+}
+
+.border-bottom {
+  padding-bottom: 1em;
+  border-bottom: 2px solid #333;
 }
 
 button {
@@ -44,9 +53,12 @@ button {
   margin-bottom: 5em;
 }
 
+.copy {
+  margin-top: 2em;
+}
+
 .header-border-top {
   border-top: 2px solid #333;
-  margin-top: 1em;
 }
 
 footer {
@@ -62,15 +74,8 @@ footer {
   padding-right: 2em;
 }
 
-.header-pitch {
-  height: 9em;
-  border-bottom: 2px solid #333;
-  border-top: 2px solid #333;
-  margin-top: 1em;
-}
-
-.index-names {
-  margin-top: 1em;
+.cover {
+  background-color: #333;
 }
 
 input {
@@ -111,7 +116,16 @@ textarea {
 
 .underline-thick {
   border-bottom: 5px solid #333;
-  margin-bottom: 0;
+  margin-bottom: 1em;
+}
+
+.underline-thick-score {
+  border-bottom: 5px solid #333;
+  padding-bottom: 0;
+}
+
+.question {
+  padding-bottom: 1em;
 }
 
 .question-info {
@@ -119,6 +133,5 @@ textarea {
 }
 
 .question-box {
-  margin-top: 1em;
   border: 2px solid #333;
 }
