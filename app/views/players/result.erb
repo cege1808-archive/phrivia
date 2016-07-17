@@ -1,8 +1,8 @@
 <h1> result page</h1>
+<ol>
 <% @all_players.each do |player| %>
-  <%= player.name %>
-  <%= player.points %>
+  <li><%= player.name %>   <%= player.points %></li>
 
 <% end %>
-
+</ol>
 <button><a href="/final_result">Final Result</a></button>

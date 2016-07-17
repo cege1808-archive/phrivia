@@ -72,7 +72,7 @@ post '/question/:question_id/ranked' do
 end
 
 get '/question/:question_id/result' do 
-  @all_players = Player.all
+  @all_players = Player.all.order(points: :desc)
   erb :'/players/result'
 
 end
