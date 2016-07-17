@@ -16,6 +16,20 @@ small {
   font-weight: 400;
 }
 
+.side {
+  height: 100%;
+  position:fixed;
+  overflow: hidden;
+}
+
+.left-side {
+  background-color: pink;
+}
+
+.right-side {
+  background-color: orange;
+}
+
 body {
   background-color: #f2f2f2;
 }
