@@ -1,10 +1,70 @@
-<h1> result page</h1>
-<ol>
-<% @all_players.each do |player| %>
-  <li><%= player.name %>   <%= player.points %></li>
+<div class="container-fluid">
 
-<% end %>
-</ol>
-<!-- <button><a href="/final_result">Final Result</a></button> -->
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h4 class="brand">frivia</h4>
+    </div>
+  </div>
 
-<button><a href="/question/<%= @next_question %>">Next Question</a></button>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 underline-thick header-border-top">
+      <h1>Leaderboard</h1>
+    </div>
+  </div>
+
+  <!--- Score Headers -->
+
+    <ol>
+      <div class="row">
+      
+        <div class="col-md-1 col-md-offset-4 leaderboard-labels">
+          <small>Rank</small>
+        </div>
+
+        <div class="col-md-1 leaderboard-labels edge">
+          <small>Name</small>
+        </div>
+
+        <div class="col-md-1 right leaderboard-labels edge">
+          <small>Rounds Pts</small>
+        </div>
+
+        <div class="col-md-1 right leaderboard-labels edge">
+          <small>Total Pts</small>
+        </div>
+      </div>
+    </ol>
+
+  <!---------------------->
+
+    <ol>
+      <% @all_players.each do |player| %>
+      <div class="row">
+      
+        <div class="col-md-1 col-md-offset-4 score-hr">
+          <li></li>
+        </div>
+
+        <div class="col-md-1 score-hr">
+          <%= player.name %>   
+        </div>
+
+        <div class="col-md-1 right score-hr">
+          <%= player.points %>
+        </div>
+
+        <div class="col-md-1 right score-hr">
+          <%= player.points %>
+        </div>
+      </div>
+      <% end %>
+    </ol>
+
+  <div class="col-md-2 col-md-offset-4">
+    <button>
+    <a href="/question/<%= @next_question %>">Next Question</a>
+    </button>
+  </div>
+
+</div>
+
