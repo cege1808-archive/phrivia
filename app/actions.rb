@@ -33,6 +33,24 @@ post '/question/:question_id/answers' do
     answer: params[:answer],
     player_id: params[:other_player_id]
     )
-  redirect '/question/one'
+  
+  if Answer.all.count < (Player.all.count - 1)
+    redirect '/question/one'
+  else
+    redirect "/question/#{params[:question_id]}/pass"
+  end
+
 end
 
+get '/question/:question_id/pass'do 
+  @question = Question.find(params[:question_id])
+  # binding.pry
+  @player = Player.find(@question.player_id)
+  erb :'/players/pass'
+end
+
+get '/question/:question_id/rank' do 
+  @question = Question.find(params[:question_id])
+  @answers = Answer.where(question_id: @question.id)
+  erb :'/players/rank'
+end
