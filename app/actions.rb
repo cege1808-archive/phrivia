@@ -83,7 +83,7 @@ get '/question/:question_order/result' do
   @question_order = params[:question_order].to_i - 1
   @all_players = Player.all.order(points: :desc)
   @next_question = params[:question_order].to_i + 1
-  
+
   if params[:question_order].to_i < @all_players.count
     erb :'/players/result'
   else
@@ -100,5 +100,25 @@ get '/final_result' do
   @highest_scorer = @all_players.find_by(points: highest_score)
   @lowest_scorer = @all_players.find_by(points: lowest_score)
   erb :'final'
-
 end
+
+post '/play_again' do 
+  @all_players = Player.all
+  @all_questions = Question.all
+  @all_answers = Answer.all
+
+  @all_players.each do |player|
+    player.destroy
+  end
+
+  @all_questions.each do |player|
+    player.destroy
+  end
+
+  @all_answers.each do |player|
+    player.destroy
+  end
+
+  redirect '/'
+end
+
