@@ -1,15 +1,39 @@
-<h1>Home Page</h1>
+<div class="container-fluid">
 
-<% @all_players.each do |player| %>
-  <div>
-  <%= player.name %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h4 class="brand">frivia</h4>
+    </div>
   </div>
-<% end %>
 
-<button>
-  <a href="/players/new">Add Player</a>
-</button>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 header-pitch">
+      <h1>A trivia game you can play with your friends.</h1>
+    </div>
+  </div>
 
-<button>
-  <a href="/question/one">Start</a>
-</button>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p class="index-names">
+        <% @all_players.each do |player| %>
+          <%= player.name %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-4">
+      <button>
+        <a href="/players/new">Add Player</a>
+      </button>
+    </div>
+
+    <div class="col-md-2">
+      <button>
+        <a href="/question/one">Start</a>
+      </button>
+    </div>
+  </div>
+
+</div>

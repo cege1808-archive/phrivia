@@ -1,9 +1,16 @@
-<h1> final result </h1>
-<% @all_players.each do |player| %>
-  <%= player.name %>
-  <%= player.points %>
+<div class="container-fluid">
 
-<% end %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h4 class="brand">frivia</h4>
+    </div>
+  </div>
 
-<h1> the winner is <%= @highest_scorer.name %> </h1>
-<h1> <%= @lowest_scorer.name %> must buy beer </h1>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 header-border-top">
+      <h1>The winner is <%= @highest_scorer.name %>, and sorry
+<%= @lowest_scorer.name %>, but you've got this round.</h1>
+    </div>
+  </div>
+
+</div>

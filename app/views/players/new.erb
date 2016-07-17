@@ -1,13 +1,41 @@
-<form method="POST" action="/players/new">
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <h4 class="brand">frivia</h4>
+    </div>
+  </div>
+
+  <form method="POST" action="/players/new">
   <input type="hidden" name="points" value="<%= @player.points %>"/>
-  <div>
-    <input type ="text" name="name" placeholder="enter name">
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 header-border-top">
+      <div>
+        <label>Add Name:</label>
+      </div>
+      <input type ="text" name="name"/>
+    </div>
   </div>
-  <label>Add Question:</label>
-  <div>
-    <textarea name="question"></textarea>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <label>Add Question:</label>
+    </div>
   </div>
-  <div>
-    <input type="submit" />
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <textarea name="question"></textarea>
+    </div>
   </div>
-</form>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <input class="button-submit" type="submit" />
+    </div>
+  </div>
+
+  </form>
+
+</div>
