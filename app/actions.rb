@@ -19,8 +19,20 @@ end
 
 get '/question/one' do
   @player = Player.order(:id)[0]
-  @question = Question.find_by(player_id: @player.id).question
+  @question = Question.find_by(player_id: @player.id)
+  @other_players = Player.where.not(id: @player.id)
+  @answer = Answer.new
+  @all_answer = Answer.where(question_id:@question.id)
   erb :question
+  
 end
 
+post '/question/:question_id/answers' do 
+  @answer = Answer.create(
+    question_id: params[:question_id],
+    answer: params[:answer],
+    player_id: params[:other_player_id]
+    )
+  redirect '/question/one'
+end
 

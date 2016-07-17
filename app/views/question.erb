@@ -1,1 +1,23 @@
-<h1><%= @question %></h1>
+<p> It is about <%= @player.name %>.</p>
+<h1><%= @question.question %></h1>
+<p>Some instructions</p>
+
+<ul>
+<% @all_answer.each do | answer| %>
+  <li><%= answer.answer %></li>
+<% end %>
+</ul>
+
+<form method="POST" action="/question/<%= @question.id %>/answers">
+
+  <select name="other_player_id">
+  <% @other_players.each do | other_player| %>
+    <option value="<%= other_player.id %>" > <%= other_player.name %></option>
+    <% end %>
+  </select>
+
+  <textarea name="answer"></textarea>
+  <input type="submit" />
+
+
+</form>
