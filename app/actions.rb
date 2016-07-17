@@ -47,8 +47,6 @@ end
 get '/question/:question_order/pass'do 
   @question_order = params[:question_order].to_i - 1
   @question = Question.order(:id)[@question_order]
-  # @question = Question.find(params[:question_id])
-  # binding.pry
   @player = Player.find(@question.player_id)
   erb :'/players/pass'
 end
@@ -56,17 +54,13 @@ end
 get '/question/:question_order/rank' do 
   @question_order = params[:question_order].to_i - 1
   @question = Question.order(:id)[@question_order]
-  # @question = Question.find(params[:question_id])
   @answers_all = Answer.where(question_id: @question.id)
   erb :'/players/rank'
 end
 
 post '/question/:question_order/ranked' do 
-  # params[:12] = 500
-  # binding.pry
   @question_order = params[:question_order].to_i - 1
   @question = Question.order(:id)[@question_order]
-  # @question = Question.find(params[:question_id])
   @player = Player.find(@question.player_id)
   @other_players = Player.where.not(id: @player.id)
 
@@ -94,11 +88,13 @@ end
 
 get '/final_result' do 
   @all_players = Player.all
-  # binding.pry
+
   highest_score = @all_players.maximum("points")
   lowest_score = @all_players.minimum("points")
+
   @highest_scorer = @all_players.find_by(points: highest_score)
   @lowest_scorer = @all_players.find_by(points: lowest_score)
+
   erb :'final'
 end
 
