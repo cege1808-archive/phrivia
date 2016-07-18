@@ -1,7 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,600);
+*{
+  font-family: 'Poppins', sans-serif;
+}
 
 h1, h4 {
-  font-family: 'Poppins', sans-serif;
   font-weight: 600;
 }
 
@@ -10,15 +12,15 @@ h1, h4 {
 }
 
 p, select, label {
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 1.25em;
 }
 
 small {
-  font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
+
+/*the side stuff , TODO alphabetize*/
 
 .side {
   height: 100%;
@@ -150,4 +152,104 @@ textarea {
 
 .question-box {
   border: 2px solid #333;
+}
+
+/*Button layout*/
+
+a{
+  text-decoration: none !important;
+}
+
+.button{
+  /*background: #ff6161; fusia*/
+  background-color: lightgrey;
+  cursor: pointer;
+  color:black;
+  height: 50px;
+  line-height: 50px;
+  margin: 10px ;
+  overflow: hidden;
+  text-align: center;
+  transition: .2s;
+  width: 200px;
+
+}
+
+/*.btnTwo{
+  position: relative;
+  width: 200px;
+  height: 50px;
+  margin-top: -163.5px;
+  background: orange;
+  transition: .3s;
+  line-height: 50px;
+  margin-left: -150px;
+}*/
+
+.btnText1 {
+  transition : .3s;
+  text-decoration: none;
+}
+
+.btnText2 {
+  margin-top : 64px;
+  margin-right : -150px;
+  /*margin-top: -113.5px;*/
+}
+
+.button:hover .btnText{
+  background-color: orange;
+  opacity: 0.8;
+}
+
+/*.button:hover .btnTwo{ 
+  When hovering over .button change .btnTwo
+  margin-top: -113.5px;
+  text-decoration: none;
+}*/
+
+/*.button:hover .btnText{ 
+  When hovering over .button change .btnText
+  margin-top: -113.5px;
+  margin-left : 65px;
+}*/
+
+.button:hover .btnText1{ 
+/*  When hovering over .button change .btnText*/
+  background-color: pink;
+}
+
+.holder {
+  display: inline-flex;
+  width:800px;
+}
+
+.button-submit {
+  border: none;
+  height: 40px;
+  line-height: 40px;
+  width: 80px;
+  background-color: lightgrey;
+}
+
+.button-submit:hover {
+  background-color: pink;
+}
+
+
+.link-button button{
+  border: none;
+  height: 40px;
+  line-height: 40px;
+  width: 80px;
+  /*margin: 0;*/
+  padding: 0;
+  background-color: lightgrey;
+  text-decoration: none;
+  color: black;
+}
+
+.link-button button:hover {
+  background-color: orange;
+  opacity: 0.8;
 }
