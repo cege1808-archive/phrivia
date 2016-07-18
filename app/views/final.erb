@@ -1,3 +1,5 @@
+<%= erb :_sides6 %>
+
 <div class="container-fluid">
 
   <div class="row">
@@ -33,12 +35,8 @@
         <small>Rank</small>
       </div>
 
-      <div class="col-md-1 leaderboard-labels edge">
+      <div class="col-md-2 leaderboard-labels edge">
         <small>Name</small>
-      </div>
-
-      <div class="col-md-1 right leaderboard-labels edge">
-        <small>Rounds Pts</small>
       </div>
 
       <div class="col-md-1 right leaderboard-labels edge">
@@ -53,54 +51,64 @@
       <% @all_players.each do |player| %>
       <div class="row">
       
-        <div class="col-md-1 col-md-offset-4 score-hr">
+        <div class="col-md-1 col-md-offset-4 score-hr board">
           <li></li>
         </div>
 
-        <div class="col-md-1 score-hr">
+        <div class="col-md-2 score-hr board">
           <%= player.name %>   
         </div>
 
-        <div class="col-md-1 right score-hr">
-          <%= player.points %>
-        </div>
-
-        <div class="col-md-1 right score-hr">
+        <div class="col-md-1 right score-hr board">
           <%= player.points %>
         </div>
       </div>
       <% end %>
     </ol>
+
 </div>
 
-    <!---------------------->
-    
-    <% @count = 0 %>
-
-<% @all_questions.each do |question| %>
   <div class="row">
-      <div class="col-md-4 col-md-offset-4 underline-thick">
-      <!-- <% @count += 1 %> -->
-        <h1>Question <%= @count %> - <%= question.question %></h1>
-      </div>
+    <div class="col-md-4 col-md-offset-4 underline-thick">
+      <h1>Answers</h1>
     </div>
+  </div>
+    
+  <% @count = 0 %>
 
-    <% @answers_all = Answer.where(question_id: question.id) %>
+  <% @all_questions.each do |question| %>
+      <div class="row">
+        <div class="col-md-1 col-md-offset-3">
+          <!-- <% @count += 1 %> -->
+          <p class="overflow">Q <%= @count %></p>
+        </div>
+
+        <div class="col-md-4">
+          <p><%= question.question %></p>
+        </div>
+      </div>
+
+  <% @answers_all = Answer.where(question_id: question.id) %>
 
     <div>
       <% @answers_all.each do |answer| %>
 
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4 answer-hr">
-          <h4><%= answer.answer %></h4>
-          <h5><%= @all_players.find(answer.player_id).name %> </h5>
-
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 answer-hr answer-contrast">
+            <h4><%= answer.answer %></h4>
+            <small><%= @all_players.find(answer.player_id).name %> </small>
+          </div>
         </div>
-      </div>
-
-     
+    
       <% end %>
 
+    </div>
+
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 bottom">
+    </div>
   </div>
 
-<% end %>
+</div>

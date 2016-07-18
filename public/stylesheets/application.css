@@ -7,11 +7,12 @@ h1, h4 {
   font-weight: 600;
 }
 
+
 .test {
   background-color: yellow;
 }
 
-p, select, label {
+p, select, label, .board {
   font-weight: 400;
   font-size: 1.25em;
 }
@@ -28,12 +29,9 @@ small {
   overflow: hidden;
 }
 
-.left-side {
-  background-color: pink;
-}
-
-.right-side {
-  background-color: orange;
+.answer-contrast {
+  background-color: #e6e6e6;
+  margin-bottom: 2em;
 }
 
 
@@ -70,13 +68,20 @@ button {
   margin-bottom: 5em;
 }
 
+.bottom {
+  margin-bottom: 5em;
+}
+
 .copy {
   margin-top: 2em;
-  text-align: center;
 }
 
 .header-border-top {
   border-top: 2px solid #333;
+}
+
+.image-left {
+  padding-left: 25%;
 }
 
 footer {
@@ -114,6 +119,10 @@ label {
 
 ol {
   padding-left: 0;
+}
+
+.overflow {
+  text-align: right;
 }
 
 .right {
