@@ -90,7 +90,7 @@ get '/question/:question_order/result' do
 end
 
 get '/final_result' do 
-  @all_players = Player.all
+  @all_players = Player.order(points: :desc).all
   @all_questions = Question.all
   @all_answers = Answer.all
 
