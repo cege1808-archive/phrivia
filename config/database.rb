@@ -4,17 +4,16 @@ configure :development do
 end
 
 configure :development, :test do
-  set :database, {
-    'development' => {
-      'adapter' => 'sqlite3',
-      'database' => APP_ROOT.join('db', 'development.sqlite3')
-    },
-    'test' => {
-      'adapter' => 'sqlite3',
-      'database' => APP_ROOT.join('db', 'test.sqlite3')
+  if development?
+    set :database, {
+      'development' => {
+        'adapter' => 'sqlite3',
+        'database' => APP_ROOT.join('db', 'development.sqlite3')
+      }
     }
-  }
-end
+  else
+    set :database, ENV['DATABASE_URL']
+  end
 
 configure :production do
   # Database connection is configured automatically based on the DATABASE_URL
