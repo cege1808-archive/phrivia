@@ -14,6 +14,7 @@ configure :development, :test do
   else
     set :database, ENV['DATABASE_URL']
   end
+end
 
 configure :production do
   # Database connection is configured automatically based on the DATABASE_URL
