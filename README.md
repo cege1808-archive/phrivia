@@ -1,7 +1,7 @@
-Sinatra
+Frivia (Friend Trivia)
 =============
 
-Brought to you by Lighthouse Labs
+A game to challenge your friends to know more about you. (Drinks are not included)
 
 ## Getting Started
 
